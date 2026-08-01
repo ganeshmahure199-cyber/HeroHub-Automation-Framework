@@ -87,12 +87,16 @@ public class BaseTest extends ConfigeDataProvider {
     public static void launchBrowser() throws Exception {               
         ChromeOptions options = new ChromeOptions();        
         options.setExperimentalOption("excludeSwitches", Collections.singletonList("enable-automation"));                     
-        options.addArguments("--force-device-scale-factor=0.9");
-        System.setProperty("webdriver.chrome.silentOutput", "true");
+        options.addArguments("--force-device-scale-factor=0.9"); 
+        options.addArguments("--headless=new"); // Runs Chrome invisibly in the background
+        options.addArguments("--disable-gpu");
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");        
+        System.setProperty("webdriver.chrome.silentOutput", "true");        
         driver = new ChromeDriver(options);      
-        driver.manage().window().maximize();                
-        driver.get(ConfigeDataProvider.getOrangeHrmUrl());                    
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));      
+        driver.manage().window().maximize();
+        driver.get(ConfigeDataProvider.getOrangeHrmUrl());            
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(25));      
     }   
 
 
