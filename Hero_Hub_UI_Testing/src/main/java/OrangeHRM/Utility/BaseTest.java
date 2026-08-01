@@ -29,8 +29,7 @@ import net.bytebuddy.utility.RandomString;
 public class BaseTest extends ConfigeDataProvider {
     
     @BeforeSuite(alwaysRun = true)
-    public void setupSuite() {
-        // Fixed: Removed the unnecessary LOGGER argument
+    public void setupSuite() {        
         OrangeHRM.Utility.Log.initialiseExtentReport();
     }
     
@@ -45,10 +44,8 @@ public class BaseTest extends ConfigeDataProvider {
         launchBrowser();
         System.out.println("Session ID:" + ((RemoteWebDriver) driver).getSessionId());
 
-        // Fix: We create a unique name using both the class name and method name
-        String testName = result.getTestClass().getName() + " = " + method.getName();
-        
-        // Grabs the public static 'extent' object from Log and links it to this execution thread
+     
+        String testName = result.getTestClass().getName() + " = " + method.getName();              
         com.aventstack.extentreports.ExtentTest test = OrangeHRM.Utility.Log.extent.createTest(testName);
         OrangeHRM.Utility.Log.setTest(test);
         
@@ -81,24 +78,26 @@ public class BaseTest extends ConfigeDataProvider {
         // Fixed: Removed the unnecessary LOGGER argument
         OrangeHRM.Utility.Log.flushExtent();
     }
-
-
     
     public static void launchBrowser() throws Exception {               
         ChromeOptions options = new ChromeOptions();        
         options.setExperimentalOption("excludeSwitches", Collections.singletonList("enable-automation"));                     
         options.addArguments("--force-device-scale-factor=0.9"); 
-        options.addArguments("--headless=new"); // Runs Chrome invisibly in the background
-        options.addArguments("--disable-gpu");
-        options.addArguments("--no-sandbox");
-        options.addArguments("--disable-dev-shm-usage");        
+        if (System.getenv("JENKINS_URL") != null) {
+            LOGGER.info("Detected Jenkins CI/CD environment. Running browser in HEADLESS mode.");
+            options.addArguments("--headless=new"); // Runs invisibly ONLY on the server
+            options.addArguments("--disable-gpu");
+            options.addArguments("--no-sandbox");
+            options.addArguments("--disable-dev-shm-usage");
+        } else {
+            LOGGER.info("Detected Local IDE environment. Launching VISIBLE browser window.");            
+        }        
         System.setProperty("webdriver.chrome.silentOutput", "true");        
         driver = new ChromeDriver(options);      
-        driver.manage().window().maximize();
+        driver.manage().window().maximize();                
         driver.get(ConfigeDataProvider.getOrangeHrmUrl());            
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(25));      
     }   
-
 
     public static void quitBrowser() {
         if (driver != null) {

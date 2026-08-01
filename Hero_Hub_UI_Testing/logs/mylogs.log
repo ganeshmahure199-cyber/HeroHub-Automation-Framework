@@ -1,39 +1,28 @@
-[DEBUG] 2026-08-01 14:58:28.537 [main] Log - ==============      Configuring Extent Report      ================
-[DEBUG] 2026-08-01 14:58:28.654 [main] Log - ***************         Next Class suite      ***********************
-[DEBUG] 2026-08-01 14:58:28.986 [main] Log - **************      launching chrome browser     ********************* 
-[DEBUG] 2026-08-01 14:58:36.039 [main] Log - ====================================================================================
-[DEBUG] 2026-08-01 14:58:36.040 [main] Log -                    Start -> Test -> loginVerificationRun    
-[DEBUG] 2026-08-01 14:58:36.040 [main] Log - ====================================================================================
-[INFO ] 2026-08-01 14:58:36.711 [main] Log - Value injected successfully to field [Username Text Field]: Admin
-[INFO ] 2026-08-01 14:58:36.843 [main] Log - Value injected successfully to field [Password Text Field]: admin123
-[INFO ] 2026-08-01 14:58:36.895 [main] Log - Element clicked successfully: Login Submit Button
-[DEBUG] 2026-08-01 14:58:36.902 [main] Log -  
-[DEBUG] 2026-08-01 14:58:37.908 [main] Log -  End -> Test -> loginVerificationRun    
-[DEBUG] 2026-08-01 14:58:37.908 [main] Log - *******************         Driver Quit       ***********************
-[DEBUG] 2026-08-01 14:58:38.057 [main] Log - *******************        Next Class suite      ***********************
-[DEBUG] 2026-08-01 14:58:38.057 [main] Log - ***************         Next Class suite      ***********************
-[DEBUG] 2026-08-01 14:58:38.089 [main] Log - **************      launching chrome browser     ********************* 
-[DEBUG] 2026-08-01 14:58:46.483 [main] Log - ====================================================================================
-[DEBUG] 2026-08-01 14:58:46.483 [main] Log -                    Start -> Test -> testLoginExcelTestData_check    
-[DEBUG] 2026-08-01 14:58:46.483 [main] Log - ====================================================================================
-[INFO ] 2026-08-01 14:58:47.873 [main] Log - Value injected successfully to field [Username Text Field]: Admin
-[INFO ] 2026-08-01 14:58:48.006 [main] Log - Value injected successfully to field [Password Text Field]: admin123
-[INFO ] 2026-08-01 14:58:48.074 [main] Log - Element clicked successfully: Login Submit Button
-[DEBUG] 2026-08-01 14:58:48.076 [main] Log -  
-[DEBUG] 2026-08-01 14:58:49.076 [main] Log -  End -> Test -> testLoginExcelTestData_check    
-[DEBUG] 2026-08-01 14:58:49.076 [main] Log - *******************         Driver Quit       ***********************
-[DEBUG] 2026-08-01 14:58:49.246 [main] Log - **************      launching chrome browser     ********************* 
-[DEBUG] 2026-08-01 14:58:54.849 [main] Log - ====================================================================================
-[DEBUG] 2026-08-01 14:58:54.849 [main] Log -                    Start -> Test -> testLoginWithDifferentUser_check    
-[DEBUG] 2026-08-01 14:58:54.849 [main] Log - ====================================================================================
-[INFO ] 2026-08-01 14:58:55.991 [main] Log - Value injected successfully to field [Username Text Field]: 
-[INFO ] 2026-08-01 14:58:56.103 [main] Log - Value injected successfully to field [Password Text Field]: 
-[INFO ] 2026-08-01 14:58:56.151 [main] Log - Element clicked successfully: Login Submit Button
-[INFO ] 2026-08-01 14:58:56.242 [main] Log - Value injected successfully to field [Username Text Field]: 
-[INFO ] 2026-08-01 14:58:56.355 [main] Log - Value injected successfully to field [Password Text Field]: 
-[INFO ] 2026-08-01 14:58:56.414 [main] Log - Element clicked successfully: Login Submit Button
-[DEBUG] 2026-08-01 14:58:56.414 [main] Log -  
-[DEBUG] 2026-08-01 14:58:57.428 [main] Log -  End -> Test -> testLoginWithDifferentUser_check    
-[DEBUG] 2026-08-01 14:58:57.428 [main] Log - *******************         Driver Quit       ***********************
-[DEBUG] 2026-08-01 14:58:57.570 [main] Log - *******************        Next Class suite      ***********************
-[DEBUG] 2026-08-01 14:58:57.586 [main] Log - ===================      Flushing Extent Report      =========================
+[DEBUG] 2026-08-01 18:24:35.708 [main] Log - ==============      Configuring Extent Report      ================
+[DEBUG] 2026-08-01 18:24:35.828 [main] Log - ***************         Next Class suite      ***********************
+[DEBUG] 2026-08-01 18:24:36.150 [main] Log - **************      launching chrome browser     ********************* 
+[INFO ] 2026-08-01 18:24:36.153 [main] Log - Detected Local IDE environment. Launching VISIBLE browser window.
+[DEBUG] 2026-08-01 18:24:46.142 [main] Log - ====================================================================================
+[DEBUG] 2026-08-01 18:24:46.142 [main] Log -                    Start -> Test -> loginVerificationRun    
+[DEBUG] 2026-08-01 18:24:46.142 [main] Log - ====================================================================================
+[INFO ] 2026-08-01 18:24:47.161 [main] Log - Value injected successfully to field [Username Text Field]: Admin
+[INFO ] 2026-08-01 18:24:47.275 [main] Log - Value injected successfully to field [Password Text Field]: admin123
+[INFO ] 2026-08-01 18:24:47.328 [main] Log - Element clicked successfully: Login Submit Button
+[DEBUG] 2026-08-01 18:24:47.328 [main] Log -  
+[DEBUG] 2026-08-01 18:24:48.335 [main] Log -  End -> Test -> loginVerificationRun    
+[DEBUG] 2026-08-01 18:24:48.336 [main] Log - *******************         Driver Quit       ***********************
+[DEBUG] 2026-08-01 18:24:48.494 [main] Log - *******************        Next Class suite      ***********************
+[DEBUG] 2026-08-01 18:24:48.496 [main] Log - ***************         Next Class suite      ***********************
+[DEBUG] 2026-08-01 18:24:48.527 [main] Log - **************      launching chrome browser     ********************* 
+[INFO ] 2026-08-01 18:24:48.527 [main] Log - Detected Local IDE environment. Launching VISIBLE browser window.
+[DEBUG] 2026-08-01 18:24:50.448 [main] Log - ====================================================================================
+[DEBUG] 2026-08-01 18:24:50.448 [main] Log -                    Start -> Test -> testLoginExcelTestData_check    
+[DEBUG] 2026-08-01 18:24:50.448 [main] Log - ====================================================================================
+[INFO ] 2026-08-01 18:24:58.148 [main] Log - Value injected successfully to field [Username Text Field]: Admin
+[INFO ] 2026-08-01 18:24:58.278 [main] Log - Value injected successfully to field [Password Text Field]: admin123
+[INFO ] 2026-08-01 18:24:58.342 [main] Log - Element clicked successfully: Login Submit Button
+[DEBUG] 2026-08-01 18:24:58.346 [main] Log -  
+[DEBUG] 2026-08-01 18:24:59.351 [main] Log -  End -> Test -> testLoginExcelTestData_check    
+[DEBUG] 2026-08-01 18:24:59.351 [main] Log - *******************         Driver Quit       ***********************
+[DEBUG] 2026-08-01 18:24:59.512 [main] Log - *******************        Next Class suite      ***********************
+[DEBUG] 2026-08-01 18:24:59.536 [main] Log - ===================      Flushing Extent Report      =========================
