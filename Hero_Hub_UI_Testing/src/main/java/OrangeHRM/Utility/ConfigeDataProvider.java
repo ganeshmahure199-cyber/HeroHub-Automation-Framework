@@ -1,0 +1,17 @@
+package OrangeHRM.Utility;
+
+/**
+ * @author Ganesh.Mahure
+ */
+public class ConfigeDataProvider extends PageClassObject {
+
+    
+    public static final String USER_DIRECTORY_PATH = System.getProperty("user.dir");        
+    
+    
+    public static String getOrangeHrmUrl() {
+        return Library.getStringConfigData("orngHRMURL");
+    }
+
+    
+}
