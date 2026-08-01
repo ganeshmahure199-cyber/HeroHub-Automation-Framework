@@ -1,0 +1,33 @@
+pipeline {
+    agent any
+    
+    tools {
+        // Must match the exact Global Tool Configuration names defined in your Jenkins UI
+        maven 'Maven_3.x'
+        jdk 'Java_11'
+    }
+    
+    stages {
+        stage('Checkout Code') {
+            steps {
+                // Automatically pulls the latest framework changes down from GitHub
+                checkout scm
+            }
+        }
+        
+        stage('Execute Automation Suites') {
+            steps {
+                // Runs the clean execution Maven command on a Windows runner agent node
+                bat 'mvn clean test'
+            }
+        }
+    }
+    
+    post {
+        always {
+            // Keeps your Extent Report dashboard summaries visible on the Jenkins project space
+            archiveArtifacts artifacts: 'Reports/**/*', fingerprint: true
+            junit 'target/surefire-reports/*.xml'
+        }
+    }
+}
