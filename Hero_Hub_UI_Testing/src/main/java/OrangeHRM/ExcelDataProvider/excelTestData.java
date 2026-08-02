@@ -4,12 +4,14 @@ import OrangeHRM.Utility.Library;
 
 public class excelTestData {
         
-    public static String username;
-    public static String password;
+    public static String username1;
+    public static String password1;
+    
 
     public excelTestData(int sheetNumber, int rowNumber) {
         
-        excelTestData.username = Library.getExcelData(sheetNumber, rowNumber, 4);
-        excelTestData.password = Library.getExcelData(sheetNumber, rowNumber, 5);
+        excelTestData.username1 = Library.getExcelData(sheetNumber, rowNumber, 1);
+        excelTestData.password1= Library.getExcelData(sheetNumber, rowNumber, 2);
+        
     }
 }

@@ -21,16 +21,7 @@ public class TestDataProvider {
     }
     
   //=====================================================================================
-    
-    @DataProvider(name = "gaurantedFuturePlus")
-    public static Object[][] gfpF1Data() throws IOException {
-        String path = System.getProperty("user.dir") + File.separator + "src" + File.separator 
-                    + "test" + File.separator + "resources" + File.separator + "TestData" + File.separator + "Data.xlsx";
-        return fetchExcelDataMatrix(path);
-    }
-
-  //=====================================================================================
-    
+       
     @DataProvider(name = "orangeHrmTestData")
     public static Object[][] OrangeHrmLoginData() throws IOException {
         String path = System.getProperty("user.dir") + File.separator + "src" + File.separator 
