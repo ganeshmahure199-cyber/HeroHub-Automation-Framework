@@ -22,7 +22,6 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 
 import com.google.common.io.Files;
-
 import net.bytebuddy.utility.RandomString;
 
 public class BaseTest extends ConfigeDataProvider {
@@ -32,15 +31,18 @@ public class BaseTest extends ConfigeDataProvider {
         OrangeHRM.Utility.Log.initialiseExtentReport();
     }
     
-    // 💡 FIXED: Launcher moved to @BeforeClass so browser initializes ONCE per test class file
+    // 💡 PHASE 1 CONFIGURATION: Added dynamic object data model instantiation hooks
     @BeforeClass(alwaysRun = true)
     public void beforeClass() throws Exception {     
         LOGGER.debug("***************         Launching Browser Session for Class      ***********************");       
         launchBrowser();
         System.out.println("Session ID:" + ((RemoteWebDriver) driver).getSessionId());
+        
+        // 🛠️ ADDED LINES: Instantiates data properties and page objects right inside the Class lifecycle layer
+        exceldata = new OrangeHRM.ExcelDataProvider.excelTestData(0, 1);
+        login = new OrangeHRM.pages.loginPage(driver);
     }
     
-    // 💡 FIXED: Keeps Extent Logging reporting nodes dynamic for each individual test method execution step
     @BeforeMethod(alwaysRun = true)
     public void beforeMethod(Method method, ITestResult result) throws Exception {      
         String testName = result.getTestClass().getName() + " = " + method.getName();              
@@ -52,7 +54,6 @@ public class BaseTest extends ConfigeDataProvider {
         LOGGER.debug("====================================================================================");
     }
 
-    // 💡 FIXED: Cleans up log reports for the test method but DOES NOT quit the browser instance window
     @AfterMethod(alwaysRun = true)
     public void afterMethod(Method method, ITestResult result) throws Exception  {
         OrangeHRM.Utility.Log.afterMethodLogResult(method, result, driver);
@@ -64,7 +65,6 @@ public class BaseTest extends ConfigeDataProvider {
         OrangeHRM.Utility.Log.removeTest();
     }
 
-    // 💡 FIXED: Wipes browser nodes and cleanly closes the driver execution cycle ONLY when class finishes completely
     @AfterClass(alwaysRun = true)
     public void afterClass()  {             
         LOGGER.debug("*******************         Driver Quit (End of Class Suite Run)       ***********************");       
@@ -100,7 +100,7 @@ public class BaseTest extends ConfigeDataProvider {
     public static void quitBrowser() {
         if (driver != null) {
             driver.quit(); 
-            driver = null; // Clean instance allocation marker
+            driver = null; 
         }
     }   
 

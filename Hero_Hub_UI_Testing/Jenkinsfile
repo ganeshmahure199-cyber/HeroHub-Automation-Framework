@@ -15,7 +15,6 @@ pipeline {
         
         stage('Execute Automation Suites') {
             steps {
-                // Fixed: Explicitly changes directory into your subfolder before running Maven
                 dir('Hero_Hub_UI_Testing') {
                     bat 'mvn clean test'
                 }
@@ -25,9 +24,9 @@ pipeline {
     
     post {
         always {
-            // Fixed: Adjusted reporting paths to match your project subfolder layout
-            archiveArtifacts artifacts: 'Hero_Hub_UI_Testing/Reports/**/*', fingerprint: true
-            junit 'Hero_Hub_UI_Testing/target/surefire-reports/*.xml'
+            // 💡 FIXED: Uses double wildcards (**/) so Jenkins can look deep inside your subfolders for reports
+            archiveArtifacts artifacts: '**/Reports/**/*', fingerprint: true, allowEmptyArchive: true
+            junit '**/target/surefire-reports/*.xml'
         }
     }
 }

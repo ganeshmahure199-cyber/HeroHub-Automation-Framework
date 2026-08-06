@@ -1,21 +1,39 @@
-[DEBUG] 2026-08-06 14:44:18.455 [main] Log - ==============      Configuring Extent Report      ================
-[DEBUG] 2026-08-06 14:44:18.577 [main] Log - ***************         Launching Browser Session for Class      ***********************
-[INFO ] 2026-08-06 14:44:18.580 [main] Log - Detected Local IDE environment. Launching VISIBLE browser window.
-[DEBUG] 2026-08-06 14:44:25.161 [main] Log - ====================================================================================
-[DEBUG] 2026-08-06 14:44:25.162 [main] Log -                    Start -> Test -> step01_loginToApplication    
-[DEBUG] 2026-08-06 14:44:25.162 [main] Log - ====================================================================================
-[INFO ] 2026-08-06 14:44:25.334 [main] Log - Value injected successfully to field [Username Text Field]: Admin
-[INFO ] 2026-08-06 14:44:25.443 [main] Log - Value injected successfully to field [Password Text Field]: admin123
-[INFO ] 2026-08-06 14:44:25.498 [main] Log - Element clicked successfully: Login Submit Button
-[INFO ] 2026-08-06 14:44:29.506 [main] Log - Value Validation Match Successful! Actual matches Target content: [https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/index]
-[DEBUG] 2026-08-06 14:44:29.527 [main] Log -  
-[DEBUG] 2026-08-06 14:44:30.535 [main] Log -  End -> Test -> step01_loginToApplication    
-[DEBUG] 2026-08-06 14:44:30.614 [main] Log - ====================================================================================
-[DEBUG] 2026-08-06 14:44:30.614 [main] Log -                    Start -> Test -> step02_verifyDashboardNavigation    
-[DEBUG] 2026-08-06 14:44:30.614 [main] Log - ====================================================================================
-[INFO ] 2026-08-06 14:44:30.624 [main] Log - Value Validation Match Successful! Actual matches Target content: [https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/index]
-[DEBUG] 2026-08-06 14:44:30.624 [main] Log -  
-[DEBUG] 2026-08-06 14:44:31.641 [main] Log -  End -> Test -> step02_verifyDashboardNavigation    
-[DEBUG] 2026-08-06 14:44:31.643 [main] Log - *******************         Driver Quit (End of Class Suite Run)       ***********************
-[DEBUG] 2026-08-06 14:44:31.815 [main] Log - *******************        Next Class suite      ***********************
-[DEBUG] 2026-08-06 14:44:31.821 [main] Log - ===================      Flushing Extent Report      =========================
+[DEBUG] 2026-08-06 23:58:22.576 [main] Log - ==============      Configuring Extent Report      ================
+[DEBUG] 2026-08-06 23:58:22.691 [main] Log - ***************         Launching Browser Session for Class      ***********************
+[INFO ] 2026-08-06 23:58:22.695 [main] Log - Detected Local IDE environment. Launching VISIBLE browser window.
+[INFO ] 2026-08-06 23:58:57.853 [main] Log - Executing master login precondition step...
+[INFO ] 2026-08-06 23:59:10.731 [main] Log - Value injected successfully to field [Username Text Field]: Admin
+[INFO ] 2026-08-06 23:59:10.835 [main] Log - Value injected successfully to field [Password Text Field]: admin123
+[INFO ] 2026-08-06 23:59:10.879 [main] Log - Element clicked successfully: Login Submit Button
+[DEBUG] 2026-08-06 23:59:14.887 [main] Log - Readying framework method environment track...
+[DEBUG] 2026-08-06 23:59:14.902 [main] Log - ====================================================================================
+[DEBUG] 2026-08-06 23:59:14.903 [main] Log -                    Start -> Test -> step01_verifyDashboardComponentA    
+[DEBUG] 2026-08-06 23:59:14.903 [main] Log - ====================================================================================
+[INFO ] 2026-08-06 23:59:14.954 [main] Log - Value Validation Match Successful! Actual matches Target content: [https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/index]
+[DEBUG] 2026-08-06 23:59:14.961 [main] Log -  
+[DEBUG] 2026-08-06 23:59:15.972 [main] Log -  End -> Test -> step01_verifyDashboardComponentA    
+[DEBUG] 2026-08-06 23:59:15.972 [main] Log - Readying framework method environment track...
+[DEBUG] 2026-08-06 23:59:15.972 [main] Log - ====================================================================================
+[DEBUG] 2026-08-06 23:59:15.972 [main] Log -                    Start -> Test -> step02_verifyDashboardComponentB    
+[DEBUG] 2026-08-06 23:59:15.972 [main] Log - ====================================================================================
+[INFO ] 2026-08-06 23:59:15.988 [main] Log - Value Validation Match Successful! Actual matches Target content: [https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/index]
+[DEBUG] 2026-08-06 23:59:15.997 [main] Log -  
+[DEBUG] 2026-08-06 23:59:17.005 [main] Log -  End -> Test -> step02_verifyDashboardComponentB    
+[DEBUG] 2026-08-06 23:59:17.005 [main] Log - *******************         Driver Quit (End of Class Suite Run)       ***********************
+[DEBUG] 2026-08-06 23:59:17.195 [main] Log - *******************        Next Class suite      ***********************
+[DEBUG] 2026-08-06 23:59:17.197 [main] Log - ***************         Launching Browser Session for Class      ***********************
+[INFO ] 2026-08-06 23:59:17.197 [main] Log - Detected Local IDE environment. Launching VISIBLE browser window.
+[INFO ] 2026-08-06 23:59:25.386 [main] Log - Executing master login precondition step for Excel Data Validation...
+[INFO ] 2026-08-06 23:59:28.865 [main] Log - Value injected successfully to field [Username Text Field]: Admin
+[INFO ] 2026-08-06 23:59:28.967 [main] Log - Value injected successfully to field [Password Text Field]: admin123
+[INFO ] 2026-08-06 23:59:29.018 [main] Log - Element clicked successfully: Login Submit Button
+[DEBUG] 2026-08-06 23:59:33.033 [main] Log - Readying framework method environment track...
+[DEBUG] 2026-08-06 23:59:33.034 [main] Log - ====================================================================================
+[DEBUG] 2026-08-06 23:59:33.035 [main] Log -                    Start -> Test -> testLoginExcelData_Valid    
+[DEBUG] 2026-08-06 23:59:33.035 [main] Log - ====================================================================================
+[INFO ] 2026-08-06 23:59:33.969 [main] Log - Value Validation Match Successful! Actual matches Target content: [https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/index]
+[DEBUG] 2026-08-06 23:59:33.971 [main] Log -  
+[DEBUG] 2026-08-06 23:59:34.978 [main] Log -  End -> Test -> testLoginExcelData_Valid    
+[DEBUG] 2026-08-06 23:59:34.978 [main] Log - *******************         Driver Quit (End of Class Suite Run)       ***********************
+[DEBUG] 2026-08-06 23:59:35.136 [main] Log - *******************        Next Class suite      ***********************
+[DEBUG] 2026-08-06 23:59:35.138 [main] Log - ===================      Flushing Extent Report      =========================
