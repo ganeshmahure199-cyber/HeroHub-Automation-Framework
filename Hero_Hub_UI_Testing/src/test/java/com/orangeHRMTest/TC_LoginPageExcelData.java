@@ -11,7 +11,8 @@ public class TC_LoginPageExcelData extends BaseTest {
     public void testLoginExcelData_Valid() throws Exception {    
     	Thread.sleep(3000);
         loginPage login = new loginPage(driver);                      
-        login.loginDetail(excelTestData.username1, excelTestData.password1);
+        
+        login.loginDetail(exceldata.username1, exceldata.password1);
     }
     
   

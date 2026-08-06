@@ -17,17 +17,16 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.Cookie; // FIXED: Added missing Selenium Cookie import
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
-// Removed "extends BaseTest" to keep utility methods functional and decoupled
 public class Library {
     
     private static Properties prop;
 
-    // Static block loads configuration properties once into memory at runtime
     static {
         try {
             String configPath = System.getProperty("user.dir") + File.separator + "src" + File.separator 
@@ -53,7 +52,6 @@ public class Library {
         }
     }
 
-    // Fixed: Added string data parameter and uncommented sendKeys functionality
     public static void Custom_SendKeys(WebDriver driver, WebElement element, String valueToEnter, String logMessage) {
         try {
             waitForVisibilityOf(driver, element);
@@ -98,8 +96,7 @@ public class Library {
             Log.LOGGER.error("Thread sleep interrupted: " + e.getMessage());
         }
     }
-
-    // Fixed: Pulls directly from memory cache instead of executing costly disk operations every call
+    
     public static String getStringConfigData(String key) {
         if (prop != null && prop.containsKey(key)) {
             return prop.getProperty(key);
@@ -115,7 +112,6 @@ public class Library {
         }
         throw new NullPointerException("Numeric configuration value missing for key: " + key);
     }
-
     
     public static String getExcelData(int SheetNumber, int RowNumber, int ColumnNumber) {
         String path = System.getProperty("user.dir") + File.separator + "src" + File.separator 
@@ -158,8 +154,7 @@ public class Library {
             Log.error(elementName + ": Failed display visibility state validation trace: " + e.getMessage());                    
         }
     }      
-       
-    // Fixed: Implemented accurate conditional log flow routing
+          
     public static void assertEquals(WebDriver driver, WebElement ele, String expectedValue) {
         try {   
             waitForVisibilityOf(driver, ele);
@@ -189,32 +184,56 @@ public class Library {
         }
     }      
 
-    public static void scrollwebpage(WebDriver driver, WebElement element, String message) {
+    // ==================== ADDED COOKIE METHODS ====================
+    
+    public static void saveSessionCookie(WebDriver driver, String cookieName) {
         try {
-            waitForVisibilityOf(driver, element);
-            JavascriptExecutor js = (JavascriptExecutor) driver;
-            js.executeScript("arguments[0].scrollIntoView(true);", element);
-            Log.info("Scrolled view successfully focus target marker: " + message);
-        } catch(Exception e) {
-            System.out.println("Unable to scroll element focus target trace marker: " + message);
-        }
-    }                    
-
-    public static void zoomOut(WebDriver driver) {
-        try {
-            JavascriptExecutor js = (JavascriptExecutor) driver;
-            js.executeScript("document.body.style.zoom = '0.8';");
+            Cookie loginCookie = driver.manage().getCookieNamed(cookieName);
+            if (loginCookie != null) {
+                System.setProperty("session_token_cache", loginCookie.getValue());
+                Log.info("Session token successfully captured: " + cookieName);
+            }
         } catch (Exception e) {
-            Log.LOGGER.error("Failed executing viewport engine scaling adjustments zoomOut script: " + e.getMessage());
+            Log.error("Failed to extract active session cookie context: " + e.getMessage());
         }
     }
 
-    public static void custom_page_scroll(WebDriver driver, int pixels) {
-        try {
-            JavascriptExecutor js = (JavascriptExecutor) driver;
-            js.executeScript("window.scrollBy(0, arguments[0]);", pixels);
-        } catch (Exception e) {
-            Log.error("Failed rendering vertical coordinate page scrolling adjustment engine matrix: " + pixels);
-        }
-    }
+    public static void injectSessionCookie(WebDriver driver, String cookieName, String domainName) {
+	    try {
+	        String cachedToken = System.getProperty("session_token_cache");
+	        if (cachedToken != null && !cachedToken.isEmpty()) {
+	            // FIXED: Added .sameSite("Lax") to comply with OrangeHRM's application security policies
+	            Cookie sessionCookie = new Cookie.Builder(cookieName, cachedToken)
+	                    .domain(domainName)
+	                    .path("/")
+	                    .isSecure(true)
+	                    .sameSite("Lax") 
+	                    .build();
+	            
+	            driver.manage().addCookie(sessionCookie);
+	            Log.info("Session token injected successfully into domain space mapping.");
+	        } else {
+	            Log.warn("No cached session cookie found in framework memory layers.");
+	        }
+	    } catch (Exception e) {
+	        Log.error("Failed executing programmatic cookie injection sequence: " + e.getMessage());
+	    }
+	}
+    
+	 // =============================================================================================	
+	 // 6. FIXED: Added the missing Invisibility Wait method to clear the compilation error
+	 public static boolean waitForInvisibilityOf(WebDriver driver, WebElement element) {
+	     try {
+	         // Pauses execution for up to 15 seconds waiting for the element to vanish cleanly
+	         org.openqa.selenium.support.ui.WebDriverWait wait = new org.openqa.selenium.support.ui.WebDriverWait(driver, Duration.ofSeconds(15));
+	         return wait.until(ExpectedConditions.invisibilityOf(element));
+	     } catch (Exception e) {
+	         Log.error("Timeout waiting for invisibility of element -- Element: " + element + " | Trace: " + e.getMessage());
+	         throw e;
+	     }
+	 }
+	 
+	 
+
+
 }

@@ -22,7 +22,6 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 
 import com.google.common.io.Files;
-import com.aventstack.extentreports.ExtentTest;
 
 import net.bytebuddy.utility.RandomString;
 
@@ -33,18 +32,17 @@ public class BaseTest extends ConfigeDataProvider {
         OrangeHRM.Utility.Log.initialiseExtentReport();
     }
     
+    // 💡 FIXED: Launcher moved to @BeforeClass so browser initializes ONCE per test class file
     @BeforeClass(alwaysRun = true)
-    public void beforeClass() {     
-        LOGGER.debug("***************         Next Class suite      ***********************");       
-    }
-    
-    @BeforeMethod(alwaysRun = true)
-    public void beforeMethod(Method method, ITestResult result) throws Exception {      
-        LOGGER.debug("**************      launching chrome browser     ********************* ");      
+    public void beforeClass() throws Exception {     
+        LOGGER.debug("***************         Launching Browser Session for Class      ***********************");       
         launchBrowser();
         System.out.println("Session ID:" + ((RemoteWebDriver) driver).getSessionId());
-
-     
+    }
+    
+    // 💡 FIXED: Keeps Extent Logging reporting nodes dynamic for each individual test method execution step
+    @BeforeMethod(alwaysRun = true)
+    public void beforeMethod(Method method, ITestResult result) throws Exception {      
         String testName = result.getTestClass().getName() + " = " + method.getName();              
         com.aventstack.extentreports.ExtentTest test = OrangeHRM.Utility.Log.extent.createTest(testName);
         OrangeHRM.Utility.Log.setTest(test);
@@ -54,28 +52,28 @@ public class BaseTest extends ConfigeDataProvider {
         LOGGER.debug("====================================================================================");
     }
 
-
+    // 💡 FIXED: Cleans up log reports for the test method but DOES NOT quit the browser instance window
     @AfterMethod(alwaysRun = true)
     public void afterMethod(Method method, ITestResult result) throws Exception  {
         OrangeHRM.Utility.Log.afterMethodLogResult(method, result, driver);
         LOGGER.debug(" ");
         Library.threadSleep(1000);
         LOGGER.debug(" End -> Test -> " + method.getName() + "    ");                
-        LOGGER.debug("*******************         Driver Quit       ***********************");       
-        quitBrowser(); 
         
-        // Clean up ThreadLocal reference after test finishes
+        // Clean up ThreadLocal reporting references safely between method loops
         OrangeHRM.Utility.Log.removeTest();
     }
 
+    // 💡 FIXED: Wipes browser nodes and cleanly closes the driver execution cycle ONLY when class finishes completely
     @AfterClass(alwaysRun = true)
     public void afterClass()  {             
+        LOGGER.debug("*******************         Driver Quit (End of Class Suite Run)       ***********************");       
+        quitBrowser(); 
         LOGGER.debug("*******************        Next Class suite      ***********************");       
     }
 
     @AfterSuite(alwaysRun = true)
     public void tearDownSuite() {           
-        // Fixed: Removed the unnecessary LOGGER argument
         OrangeHRM.Utility.Log.flushExtent();
     }
     
@@ -85,7 +83,7 @@ public class BaseTest extends ConfigeDataProvider {
         options.addArguments("--force-device-scale-factor=0.9"); 
         if (System.getenv("JENKINS_URL") != null) {
             LOGGER.info("Detected Jenkins CI/CD environment. Running browser in HEADLESS mode.");
-            options.addArguments("--headless=new"); // Runs invisibly ONLY on the server
+            options.addArguments("--headless=new"); 
             options.addArguments("--disable-gpu");
             options.addArguments("--no-sandbox");
             options.addArguments("--disable-dev-shm-usage");
@@ -102,6 +100,7 @@ public class BaseTest extends ConfigeDataProvider {
     public static void quitBrowser() {
         if (driver != null) {
             driver.quit(); 
+            driver = null; // Clean instance allocation marker
         }
     }   
 

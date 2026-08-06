@@ -1,37 +1,21 @@
-[DEBUG] 2026-08-01 19:08:02.848 [main] Log - ==============      Configuring Extent Report      ================
-[DEBUG] 2026-08-01 19:08:02.974 [main] Log - ***************         Next Class suite      ***********************
-[DEBUG] 2026-08-01 19:08:03.295 [main] Log - **************      launching chrome browser     ********************* 
-[INFO ] 2026-08-01 19:08:03.297 [main] Log - Detected Local IDE environment. Launching VISIBLE browser window.
-[DEBUG] 2026-08-01 19:08:14.895 [main] Log - ====================================================================================
-[DEBUG] 2026-08-01 19:08:14.895 [main] Log -                    Start -> Test -> loginVerificationRun    
-[DEBUG] 2026-08-01 19:08:14.897 [main] Log - ====================================================================================
-[INFO ] 2026-08-01 19:08:18.074 [main] Log - Value injected successfully to field [Username Text Field]: Admin
-[INFO ] 2026-08-01 19:08:18.183 [main] Log - Value injected successfully to field [Password Text Field]: admin123
-[INFO ] 2026-08-01 19:08:18.236 [main] Log - Element clicked successfully: Login Submit Button
-[DEBUG] 2026-08-01 19:08:18.236 [main] Log -  
-[DEBUG] 2026-08-01 19:08:19.248 [main] Log -  End -> Test -> loginVerificationRun    
-[DEBUG] 2026-08-01 19:08:19.249 [main] Log - *******************         Driver Quit       ***********************
-[DEBUG] 2026-08-01 19:08:19.452 [main] Log - **************      launching chrome browser     ********************* 
-[INFO ] 2026-08-01 19:08:19.452 [main] Log - Detected Local IDE environment. Launching VISIBLE browser window.
-[DEBUG] 2026-08-01 19:08:28.165 [main] Log - ====================================================================================
-[DEBUG] 2026-08-01 19:08:28.165 [main] Log -                    Start -> Test -> loginVerificationRun    
-[DEBUG] 2026-08-01 19:08:28.165 [main] Log - ====================================================================================
-[INFO ] 2026-08-01 19:08:32.829 [main] Log - Value injected successfully to field [Username Text Field]: admin
-[INFO ] 2026-08-01 19:08:32.934 [main] Log - Value injected successfully to field [Password Text Field]: admin123
-[INFO ] 2026-08-01 19:08:32.997 [main] Log - Element clicked successfully: Login Submit Button
-[DEBUG] 2026-08-01 19:08:33.000 [main] Log -  
-[DEBUG] 2026-08-01 19:08:34.015 [main] Log -  End -> Test -> loginVerificationRun    
-[DEBUG] 2026-08-01 19:08:34.015 [main] Log - *******************         Driver Quit       ***********************
-[DEBUG] 2026-08-01 19:08:34.282 [main] Log - **************      launching chrome browser     ********************* 
-[INFO ] 2026-08-01 19:08:34.282 [main] Log - Detected Local IDE environment. Launching VISIBLE browser window.
-[DEBUG] 2026-08-01 19:08:42.387 [main] Log - ====================================================================================
-[DEBUG] 2026-08-01 19:08:42.387 [main] Log -                    Start -> Test -> loginVerificationRun    
-[DEBUG] 2026-08-01 19:08:42.387 [main] Log - ====================================================================================
-[INFO ] 2026-08-01 19:08:45.537 [main] Log - Value injected successfully to field [Username Text Field]: Admin
-[INFO ] 2026-08-01 19:08:45.635 [main] Log - Value injected successfully to field [Password Text Field]: admin1234
-[INFO ] 2026-08-01 19:08:45.685 [main] Log - Element clicked successfully: Login Submit Button
-[DEBUG] 2026-08-01 19:08:45.688 [main] Log -  
-[DEBUG] 2026-08-01 19:08:46.698 [main] Log -  End -> Test -> loginVerificationRun    
-[DEBUG] 2026-08-01 19:08:46.698 [main] Log - *******************         Driver Quit       ***********************
-[DEBUG] 2026-08-01 19:08:46.856 [main] Log - *******************        Next Class suite      ***********************
-[DEBUG] 2026-08-01 19:08:46.877 [main] Log - ===================      Flushing Extent Report      =========================
+[DEBUG] 2026-08-06 14:44:18.455 [main] Log - ==============      Configuring Extent Report      ================
+[DEBUG] 2026-08-06 14:44:18.577 [main] Log - ***************         Launching Browser Session for Class      ***********************
+[INFO ] 2026-08-06 14:44:18.580 [main] Log - Detected Local IDE environment. Launching VISIBLE browser window.
+[DEBUG] 2026-08-06 14:44:25.161 [main] Log - ====================================================================================
+[DEBUG] 2026-08-06 14:44:25.162 [main] Log -                    Start -> Test -> step01_loginToApplication    
+[DEBUG] 2026-08-06 14:44:25.162 [main] Log - ====================================================================================
+[INFO ] 2026-08-06 14:44:25.334 [main] Log - Value injected successfully to field [Username Text Field]: Admin
+[INFO ] 2026-08-06 14:44:25.443 [main] Log - Value injected successfully to field [Password Text Field]: admin123
+[INFO ] 2026-08-06 14:44:25.498 [main] Log - Element clicked successfully: Login Submit Button
+[INFO ] 2026-08-06 14:44:29.506 [main] Log - Value Validation Match Successful! Actual matches Target content: [https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/index]
+[DEBUG] 2026-08-06 14:44:29.527 [main] Log -  
+[DEBUG] 2026-08-06 14:44:30.535 [main] Log -  End -> Test -> step01_loginToApplication    
+[DEBUG] 2026-08-06 14:44:30.614 [main] Log - ====================================================================================
+[DEBUG] 2026-08-06 14:44:30.614 [main] Log -                    Start -> Test -> step02_verifyDashboardNavigation    
+[DEBUG] 2026-08-06 14:44:30.614 [main] Log - ====================================================================================
+[INFO ] 2026-08-06 14:44:30.624 [main] Log - Value Validation Match Successful! Actual matches Target content: [https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/index]
+[DEBUG] 2026-08-06 14:44:30.624 [main] Log -  
+[DEBUG] 2026-08-06 14:44:31.641 [main] Log -  End -> Test -> step02_verifyDashboardNavigation    
+[DEBUG] 2026-08-06 14:44:31.643 [main] Log - *******************         Driver Quit (End of Class Suite Run)       ***********************
+[DEBUG] 2026-08-06 14:44:31.815 [main] Log - *******************        Next Class suite      ***********************
+[DEBUG] 2026-08-06 14:44:31.821 [main] Log - ===================      Flushing Extent Report      =========================
