@@ -23,10 +23,7 @@ public class loginPage extends BasePage {
     private WebElement loginBtn;
     
    
-    public void loginDetail(String user, String pass) {
-   
-    	
-    	
+    public void loginDetail(String user, String pass) {          
         Library.Custom_SendKeys(driver, username, user, "Username Text Field");
         Library.Custom_SendKeys(driver, password, pass, "Password Text Field");
         Library.Custom_Click(driver, loginBtn, "Login Submit Button");

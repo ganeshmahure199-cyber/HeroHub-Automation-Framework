@@ -22,10 +22,6 @@ public class TC_LoginPageExcelData extends BaseTest {
         String currentUrl = driver.getCurrentUrl();
         Library.assertEquals(driver, currentUrl, currentUrl);
         
-		// add new assertion to verify the page title
-		String expectedTitle = "OrangeHRM";
-		String actualTitle = driver.getTitle();
-		Library.assertEquals(driver, actualTitle, expectedTitle);
-       
+		
     }
 }

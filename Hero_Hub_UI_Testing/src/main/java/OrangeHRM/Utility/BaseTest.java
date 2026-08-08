@@ -59,9 +59,7 @@ public class BaseTest extends ConfigeDataProvider {
         OrangeHRM.Utility.Log.afterMethodLogResult(method, result, driver);
         LOGGER.debug(" ");
         Library.threadSleep(1000);
-        LOGGER.debug(" End -> Test -> " + method.getName() + "    ");                
-        
-        // Clean up ThreadLocal reporting references safely between method loops
+        LOGGER.debug(" End -> Test -> " + method.getName() + "    ");                                
         OrangeHRM.Utility.Log.removeTest();
     }
 
